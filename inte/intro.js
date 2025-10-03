@@ -432,3 +432,5 @@ window.addEventListener("resize", () => {
     alignHeaderToGrid(gridPositions);
   }
 });
+
+

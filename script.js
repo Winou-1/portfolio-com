@@ -1,3 +1,40 @@
+new FinisherHeader({
+  "count": 12,
+  "size": {
+    "min": 1300,
+    "max": 1500,
+    "pulse": 0
+  },
+  "speed": {
+    "x": {
+      "min": 0.1,
+      "max": 1
+    },
+    "y": {
+      "min": 0.6,
+      "max": 3
+    }
+  },
+  "colors": {
+    "background": "#690555ff",
+    "particles": [
+      "#26f8ff",
+      "#000000",
+      "#1a28a7",
+      "#000000",
+      "#42003dff"
+    ]
+  },
+  "blending": "lighten",
+  "opacity": {
+    "center": 0.3,
+    "edge": 0
+  },
+  "skew": -2,
+  "shapes": [
+    "c"
+  ]
+});
 // ===== NAVIGATION ACTIVE STATE =====
 const navLinks = document.querySelectorAll('.nav-links a');
 const sections = document.querySelectorAll('.section');
