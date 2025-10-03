@@ -660,3 +660,79 @@ function preloadImages() {
 // Initialize preloading
 window.addEventListener('load', preloadImages);
 
+// ===== GESTION MENU MOBILE ET DROPDOWN =====
+// À placer à la fin de votre script copy.js
+
+const menuToggle = document.getElementById('menuToggle');
+const navCenter = document.querySelector('.nav-center');
+const dropdown = document.querySelector('.dropdown');
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+// Menu mobile toggle
+if (menuToggle && navCenter) {
+    menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menuToggle.classList.toggle('active');
+        navCenter.classList.toggle('active');
+        
+        // Fermer le dropdown si ouvert
+        if (dropdown) {
+            dropdown.classList.remove('active');
+        }
+    });
+}
+
+// Dropdown toggle
+if (dropdownToggle && dropdown) {
+    dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdown.classList.toggle('active');
+    });
+}
+
+// Fermer les menus en cliquant ailleurs
+document.addEventListener('click', (e) => {
+    // Fermer menu mobile
+    if (menuToggle && navCenter) {
+        if (!menuToggle.contains(e.target) && !navCenter.contains(e.target)) {
+            menuToggle.classList.remove('active');
+            navCenter.classList.remove('active');
+        }
+    }
+    
+    // Fermer dropdown
+    if (dropdown && dropdownToggle) {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('active');
+        }
+    }
+});
+
+// Fermer les menus lors du clic sur un lien normal
+const normalNavLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
+normalNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (menuToggle && navCenter) {
+            menuToggle.classList.remove('active');
+            navCenter.classList.remove('active');
+        }
+    });
+});
+
+// Fermer les menus lors du clic sur un item dropdown
+const dropdownItems = document.querySelectorAll('.dropdown-item');
+dropdownItems.forEach(item => {
+    item.addEventListener('click', () => {
+        // Fermer le dropdown
+        if (dropdown) {
+            dropdown.classList.remove('active');
+        }
+        
+        // Fermer le menu mobile
+        if (menuToggle && navCenter) {
+            menuToggle.classList.remove('active');
+            navCenter.classList.remove('active');
+        }
+    });
+});
