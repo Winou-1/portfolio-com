@@ -185,7 +185,7 @@ body {
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(26, 26, 26, 0.9);
+            background: rgba(5, 15, 31, 0.329);
             backdrop-filter: blur(10px);
             border-radius: 50px;
             padding: 12px 30px;
@@ -407,8 +407,8 @@ body {
     cursor: pointer;
     padding: 5px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: right;
+    justify-content: right;
     transition: transform 0.3s ease;
 }
 
@@ -764,6 +764,7 @@ body {
     font-size: 0.875rem;
     font-weight: 600;
     border-radius: var(--radius-lg);
+    margin-top: 10%;
     margin-bottom: var(--space-md);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -1515,6 +1516,7 @@ body {
     .projects-filter {
         flex-wrap: wrap;
     }
+    
 }
 
 /* Animation Classes */
@@ -1634,14 +1636,14 @@ body {
         transform: none;
     }
 
-    /* Dropdown mobile */
-    
-
-    
-
     .section h1 {
         font-size: 3.5rem;
         padding: 0 20px;
+    }
+
+    .hero-actions{
+        margin-top: 20%;
+        margin-bottom: 30%;
     }
 }
 
@@ -1777,4 +1779,239 @@ body {
         visibility: hidden;
         transform: translateX(-50%) translateY(10px);
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.skills-section {
+    background-color: var(--bg-primary);
+}
+
+.skills-section .section-header {
+    text-align: center;
+}
+
+.skills-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Plus large pour le texte */
+    gap: var(--space-2xl);
+    margin-top: var(--space-3xl);
+}
+
+@media (max-width: 1000px) {
+    .skills-detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.skill-detail-card {
+    background-color: var(--bg-secondary);
+    padding: var(--space-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: border 0.3s ease;
+}
+
+.skill-detail-card:hover {
+    border-color: var(--primary-color);
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.skill-header h3 {
+    color: var(--primary-dark);
+    margin: 0;
+}
+
+.skill-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.skill-explanation {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+}
+
+.skill-explanation strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border-color);
+}
+
+.skill-pill {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-lg);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.skill-pill:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.l-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 60px;;
+}
+/* The media query from the nested SCSS is pulled out here */
+@media screen and (max-width: 760px) {
+  .l-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.b-game-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-bottom: 150%;
+  perspective: 1000px;
+}
+
+.b-game-card__cover {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  background-size: cover;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+  transform-origin: top center;
+  will-change: transform;
+  transform: skewX(0.001deg);
+  transition: transform 0.35s ease-in-out;
+}
+
+/* Gloss */
+.b-game-card__cover::after {
+  display: block;
+  content: '';
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background: linear-gradient(226deg, rgba(255, 255, 255, 0.068) 0%, rgba(255, 255, 255, 0.075) 35%, rgba(255, 255, 255, 0.2) 42%, rgba(255, 255, 255, 0) 60%);
+  transform: translateY(-20%);
+  will-change: transform;
+  transition: transform 0.65s cubic-bezier(0.18, 0.9, 0.58, 1);
+}
+
+/* Hover effects for the cover */
+.b-game-card:hover .b-game-card__cover {
+  transform: rotateX(7deg) translateY(-6px);
+}
+
+.b-game-card:hover .b-game-card__cover::after {
+  transform: translateY(0%);
+}
+
+/* Shadows (::before pseudo-element) */
+.b-game-card::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  /* $c_0 is replaced with #000000 */
+  background: rgba(0, 0, 0, 0.5); 
+  /* $c_0 is replaced with #000000 */
+  box-shadow: 0 6px 12px 12px rgba(0, 0, 0, 0.4); 
+  will-change: opacity;
+  transform-origin: top center;
+  transform: skewX(0.001deg);
+  transition: transform 0.35s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Hover effects for the shadow */
+.b-game-card:hover::before {
+  opacity: 0.6;
+  transform: rotateX(7deg) translateY(-6px) scale(1.05);
+}
+
+
+
+
+
+.custom-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.custom-list li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+.custom-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.nav-actions-mobile {
+    /* Utilise Flexbox pour aligner les enfants */
+    display: flex; 
+    align-items: center;
+    /* Espace entre le bouton de thème et le bouton hamburger */
+    gap: 10px; 
 }

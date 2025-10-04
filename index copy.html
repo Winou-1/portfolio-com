@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style copy.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
 </head>
@@ -21,16 +22,18 @@
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#skills">Services</a></li>
+                    <li><a href="#projects">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 
             </div>
-            <button class="theme-toggle" id="themeToggle">
+            <div class="nav-actions-mobile">
+                <button class="theme-toggle" id="themeToggle">
                     <span class="theme-icon">🌙</span>
                 </button>
-            <button class="menu-toggle" id="menuToggle">☰</button>
+                <button class="menu-toggle" id="menuToggle">☰</button>
+            </div>
         </div>
     </nav>
 
@@ -114,43 +117,14 @@
             <div class="about-content">
                 <div class="about-text">
                     <div class="about-intro">
-                        <h3>Étudiant passionné et créatif</h3>
-                        <p>Actuellement en 2ème année à l'EPITA Lyon, je poursuis une formation d'ingénieur en informatique avec une spécialisation en développement web et design. Mon parcours m'a permis de développer des compétences techniques solides tout en nourrissant ma créativité.</p>
-                    </div>
-                    <div class="about-highlights">
-                        <div class="highlight-item">
-                            <div class="highlight-number">3</div>
-                            <div class="highlight-text">Années d'expérience en développement</div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-number">15+</div>
-                            <div class="highlight-text">Projets réalisés</div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-number">5</div>
-                            <div class="highlight-text">Technologies maîtrisées</div>
-                        </div>
-                    </div>
-                    <div class="about-values">
-                        <h4>Ce qui me motive</h4>
-                        <div class="values-grid">
-                            <div class="value-item">
-                                <div class="value-icon">🚀</div>
-                                <h5>Innovation</h5>
-                                <p>Toujours à la recherche des dernières technologies et tendances</p>
-                            </div>
-                            <div class="value-item">
-                                <div class="value-icon">🎯</div>
-                                <h5>Excellence</h5>
-                                <p>Qualité et performance au cœur de chaque projet</p>
-                            </div>
-                            <div class="value-item">
-                                <div class="value-icon">🤝</div>
-                                <h5>Collaboration</h5>
-                                <p>Travailler ensemble pour créer quelque chose d'exceptionnel</p>
-                            </div>
-                        </div>
-                    </div>
+                    <h3>Étudiant en informatique</h3>
+                    <ul class="custom-list">
+                        <li>Actuellement en 2ème année à l'EPITA Lyon, je poursuis une formation d'ingénieur en informatique avec une spécialisation en développement web et design. Mon parcours m'a permis de développer des compétences techniques solides.</li>
+                        <li>En dehors des études, je m'intéresse à beaucoup d'autres domaines comme le sport ou la photographie.</li>
+                        <li>En effet je pratique assez régulièrement le ski en hiver et le reste de l'année je fais de l'escalade, natation, badminton etc.</li>
+                        <li>Je suis aussi passionné par la photographie automobile, j'en fais beaucoup pendant mon temps libre et je passe du temps à retoucher et travailler mes images grâce à des logiciels tels que Photoshop ou Lightroom.</li>
+                    </ul>
+                </div>
                 </div>
                 <div class="about-visual">
                     <div class="timeline-container">
@@ -181,133 +155,127 @@
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="l-container">
+                <div class="b-game-card">
+                    <div class="b-game-card__cover" style="background-image: url(pict/pic_1.jpg);"></div>
+                </div>
+                <div class="b-game-card">
+                    <div class="b-game-card__cover" style="background-image: url(pict/pic_5.jpg);"></div>
+                </div>
+                <div class="b-game-card">
+                    <div class="b-game-card__cover" style="background-image: url(pict/pic_2.jpg);"></div>
+                </div>
+                <div class="b-game-card">
+                    <div class="b-game-card__cover" style="background-image: url(pict/pic_4.jpg);"></div>
+                </div>
+                </div>
+            <section id="parcours" class="py-16">
+                <div class="about-intro">
+                        <h3>01. Mon Parcours Académique</h3>
+                    </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Bloc Formation EPITA -->
+                <div class="timeline-container">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-3">EPITA - [Intitulé de la formation, ex: Cycle Préparatoire]</h3>
+                    <p class="text-lg text-white-500 mb-4"><strong>[Année de début] - Aujourd'hui</strong></p>
+                    <p class="skill-explanation">
+                        Ma formation à l'EPITA m'a permis d'acquérir de solides bases en informatique, axées sur la **résolution de problèmes complexes** et la **pensée algorithmique**.
+                    </p>
+                    <ul class="skill-explanation">
+                        <li>Matières principales : Algorithmique, Programmation C/Python/Java, Systèmes d'exploitation, Bases de données.</li>
+                        <li>Résultats marquants : [Ex: Réussite du challenge 'Piscine C', Projet Algo réussi, etc.].</li>
+                        <li>Compétences théoriques : Modélisation des données, Complexité des algorithmes, Architecture des ordinateurs.</li>
+                    </ul>
+                </div>
+                <!-- Bloc Expérience(s) Professionnelle(s) / Stage -->
+                <div class="timeline-container">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-3">[Intitulé du Stage/Job] - [Nom de l'Entreprise]</h3>
+                    <p class="text-lg text-white-500 mb-4"><strong>[Année de début] - Aujourd'hui</strong></p>
+                    <p class="skill-explanation">
+                        Cette expérience a été l'occasion de confronter mes connaissances académiques aux **réalités du monde professionnel**, notamment en [domaine spécifique].
+                    </p>
+                    <ul class="skill-explanation">
+                        <li>**Responsabilités** : [Décrire une tâche clé ou une responsabilité].</li>
+                        <li>**Technologies** : [Mentionner les outils/langages utilisés en entreprise].</li>
+                        <li>**Apprentissages** : Amélioration de la communication professionnelle et de la gestion du temps sous pression.</li>
+                    </ul>
+                    <a href="#" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-semibold text-sm">
+                        Voir le Retour d'Expérience complet →
+                    </a>
+                </div>
+            </div>
+        </section>  
+    </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills-section">
+    <section id="skills" class="skills-section section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Compétences</span>
-                <h2 class="section-title">Mes Compétences Clés</h2>
-                <p class="section-subtitle">Les technologies et outils que je maîtrise</p>
+                <span class="section-tag">Compétences Techniques</span>
+                <h2 class="section-title" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">L'expertise au service des systèmes.</h2>
+                <p class="section-subtitle" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">Chacune de mes compétences est étayée par une expérience pratique, démontrant ma capacité à choisir et à maîtriser l'outil adapté au défi. Vous trouverez ci-dessous une explication de ma maîtrise pour chaque catégorie.</p>
             </div>
-            <div class="skills-content">
-                <div class="skills-categories">
-                    <div class="skill-category">
-                        <h3>Développement Frontend</h3>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">HTML/CSS</span>
-                                    <span class="skill-level">90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="90"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">JavaScript</span>
-                                    <span class="skill-level">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">React</span>
-                                    <span class="skill-level">80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="80"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Vue.js</span>
-                                    <span class="skill-level">75%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="75"></div>
-                                </div>
-                            </div>
-                        </div>
+            
+            <div class="skills-detail-grid">
+                
+                <!-- Compétence 1: Langages Fondamentaux -->
+                <div class="skill-detail-card" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+                    <div class="skill-header">
+                        <span class="skill-icon">🐍</span>
+                        <h3>Langages &amp; Algorithmique</h3>
                     </div>
-                    <div class="skill-category">
-                        <h3>Développement Backend</h3>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Node.js</span>
-                                    <span class="skill-level">80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="80"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Python</span>
-                                    <span class="skill-level">75%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="75"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">MongoDB</span>
-                                    <span class="skill-level">70%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="70"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">PostgreSQL</span>
-                                    <span class="skill-level">65%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="65"></div>
-                                </div>
-                            </div>
-                        </div>
+                    <p class="skill-explanation"><strong>Maîtrise :</strong> Intermédiaire-Avancé. J'ai une base solide en **C/C++** pour la programmation système et l'efficacité mémoire (cours EPITA B3/B4), complétée par une expertise en **Python** pour le scripting, l'analyse de données (Pandas) et le développement backend (Django).</p>
+                    <div class="skill-list">
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">C / C++</span>
+                        <span class="skill-pill">JavaScript / TypeScript</span>
                     </div>
                 </div>
-                <div class="skills-visual">
-                    <div class="tech-stack">
-                        <h4>Stack technique</h4>
-                        <div class="tech-icons">
-                            <div class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
-                                <span>HTML5</span>
-                            </div>
-                            <div class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-                                <span>CSS3</span>
-                            </div>
-                            <div class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
-                                <span>React</span>
-                            </div>
-                            <div class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
-                                <span>Node.js</span>
-                            </div>
-                            <div class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-                                <span>Python</span>
-                            </div>
-                        </div>
+
+                <!-- Compétence 2: Architecture Web & Back-end -->
+                <div class="skill-detail-card" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+                    <div class="skill-header">
+                        <span class="skill-icon">🌐</span>
+                        <h3>Architecture Web &amp; APIs</h3>
+                    </div>
+                    <p class="skill-explanation"><strong>Maîtrise :</strong> Avancé. J'ai conçu plusieurs API RESTful robustes avec **Django et Node.js/Express**. Je suis familier avec les concepts d'architecture sans état et j'ai une expérience pratique de la mise en place de services via **Docker** (voir REX Projets).</p>
+                    <div class="skill-list">
+                        <span class="skill-pill">Django / Flask</span>
+                        <span class="skill-pill">Node.js / Express</span>
+                        <span class="skill-pill">Architecture REST</span>
+                        <span class="skill-pill">Docker</span>
                     </div>
                 </div>
+
+                <!-- Compétence 3: Front-end & UI/UX -->
+                <div class="skill-detail-card" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+                    <div class="skill-header">
+                        <span class="skill-icon">🎨</span>
+                        <h3>Développement Front-end (React)</h3>
+                    </div>
+                    <p class="skill-explanation"><strong>Maîtrise :</strong> Intermédiaire. Mon expertise se concentre sur **React.js** pour la création d'interfaces utilisateur modernes et réactives. J'utilise **TypeScript** pour garantir la sécurité des types et **Tailwind CSS** pour une conception rapide et modulaire. Je suis attentif à l'accessibilité.</p>
+                    <div class="skill-list">
+                        <span class="skill-pill">React.js</span>
+                        <span class="skill-pill">Next.js</span>
+                        <span class="skill-pill">Tailwind CSS</span>
+                    </div>
+                </div>
+                
+                <!-- Compétence 4: Bases de Données & Data -->
+                <div class="skill-detail-card" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+                    <div class="skill-header">
+                        <span class="skill-icon">💾</span>
+                        <h3>Bases de Données &amp; Systèmes</h3>
+                    </div>
+                    <p class="skill-explanation"><strong>Maîtrise :</strong> Intermédiaire. Forte connaissance de **SQL** (PostgreSQL/MySQL) pour la modélisation relationnelle. J'ai également exploré les bases de données NoSQL (MongoDB) et Time-Series (InfluxDB) pour des cas d'usage spécifiques nécessitant de hautes performances d'écriture.</p>
+                    <div class="skill-list">
+                        <span class="skill-pill">SQL (PostgreSQL)</span>
+                        <span class="skill-pill">MongoDB</span>
+                        <span class="skill-pill">Modélisation de Données</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
