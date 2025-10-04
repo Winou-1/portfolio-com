@@ -1896,6 +1896,7 @@ body {
 .l-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  columns: center;
   grid-gap: 30px;
   width: 100%;
   max-width: 1200px;
