@@ -1785,3 +1785,115 @@ body {
     }
 }
 
+
+/* ===== CORRECTIONS POUR LE MENU DÉROULANT ===== */
+
+/* Empêcher la propagation du clic sur les éléments du dropdown */
+.dropdown-item {
+    pointer-events: auto;
+}
+
+.dropdown-menu {
+    pointer-events: none; /* Désactivé par défaut */
+}
+
+.dropdown.active .dropdown-menu {
+    pointer-events: auto; /* Activé quand le dropdown est ouvert */
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Z-index plus élevé pour le dropdown */
+.dropdown-menu {
+    z-index: 1000 !important;
+}
+
+/* Animation fluide pour le dropdown */
+.dropdown {
+    transition: all 0.3s ease;
+}
+
+/* Support tactile pour mobile */
+@media (hover: none) {
+    .dropdown-toggle:active {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* ===== CORRECTIONS ULTRA-STABLES POUR LE MENU DÉROULANT ===== */
+
+/* Empêcher la propagation du clic sur les éléments du dropdown */
+.dropdown-item {
+    pointer-events: auto;
+}
+
+.dropdown-menu {
+    pointer-events: none; /* Désactivé par défaut */
+}
+
+.dropdown.active .dropdown-menu {
+    pointer-events: auto; /* Activé quand le dropdown est ouvert */
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+/* Z-index ultra-élevé pour éviter tout conflit */
+.dropdown-menu {
+    z-index: 9999 !important;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+}
+
+/* Animation ultra-fluide pour le dropdown */
+.dropdown {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Support tactile amélioré pour mobile */
+@media (hover: none) {
+    .dropdown-toggle:active {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: scale(0.95);
+    }
+}
+
+/* Empêcher la sélection accidentelle */
+.dropdown * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+/* Animation de fermeture forcée */
+.dropdown:not(.active) .dropdown-menu {
+    transform: translateX(-50%) translateY(10px) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Mode desktop : support hover */
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Mode mobile : support click uniquement */
+@media (max-width: 768px) {
+    .dropdown:hover .dropdown-menu {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-50%) translateY(10px);
+    }
+}

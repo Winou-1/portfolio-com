@@ -602,6 +602,206 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(style);
+
+    // ===== GESTION MENU MOBILE ET DROPDOWN - VERSION ULTRA STABLE =====
+    
+    // Variables globales avec gestion d'état robuste
+    let isDropdownOpen = false;
+    let isMobileMenuOpen = false;
+    let isProcessingClick = false; // Évite les doubles clics rapides
+
+    // Sélecteurs uniques
+    const menuToggleBtn = document.getElementById('menuToggle');
+    const navCenterEl = document.querySelector('.nav-center');
+    const dropdownEl = document.querySelector('.dropdown');
+    const dropdownToggleBtn = document.querySelector('.dropdown-toggle');
+
+    // Fonction pour fermer tous les menus avec animation complète
+    function closeAllMenus(immediate = false) {
+        if (isProcessingClick && !immediate) return;
+        
+        isProcessingClick = true;
+        
+        // Fermer menu mobile
+        if (menuToggleBtn) {
+            menuToggleBtn.classList.remove('active');
+            isMobileMenuOpen = false;
+        }
+        
+        // Fermer navigation
+        if (navCenterEl) {
+            navCenterEl.classList.remove('active');
+        }
+        
+        // Fermer dropdown avec délai pour l'animation
+        if (dropdownEl) {
+            dropdownEl.classList.remove('active');
+            isDropdownOpen = false;
+        }
+        
+        // Réinitialiser le verrou après l'animation
+        setTimeout(() => {
+            isProcessingClick = false;
+        }, immediate ? 0 : 350);
+    }
+
+    // Fonction pour ouvrir/fermer le dropdown de manière sécurisée
+    function toggleDropdown(event) {
+        if (isProcessingClick) return;
+        
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation(); // Ultra important !
+        
+        isProcessingClick = true;
+        
+        setTimeout(() => {
+            if (isDropdownOpen) {
+                // Fermer le dropdown
+                dropdownEl.classList.remove('active');
+                isDropdownOpen = false;
+            } else {
+                // Ouvrir le dropdown
+                dropdownEl.classList.add('active');
+                isDropdownOpen = true;
+            }
+            
+            setTimeout(() => {
+                isProcessingClick = false;
+            }, 150);
+        }, 10);
+    }
+
+    // Gestion du menu mobile - VERSION ULTRA STABLE
+    if (menuToggleBtn && navCenterEl) {
+        menuToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            
+            if (isMobileMenuOpen) {
+                closeAllMenus();
+            } else {
+                // Fermer d'abord le dropdown s'il est ouvert
+                if (isDropdownOpen) {
+                    closeAllMenus(true); // Fermeture immédiate
+                }
+                
+                // Ouvrir le menu mobile avec délai
+                setTimeout(() => {
+                    menuToggleBtn.classList.add('active');
+                    navCenterEl.classList.add('active');
+                    isMobileMenuOpen = true;
+                }, 50);
+            }
+        });
+    }
+
+    // Gestion du dropdown - VERSION ULTRA STABLE
+    if (dropdownToggleBtn && dropdownEl) {
+        dropdownToggleBtn.addEventListener('click', toggleDropdown);
+        
+        // Support tactile pour mobile
+        dropdownToggleBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            toggleDropdown(e);
+        });
+    }
+
+    // Gestionnaire de clic global - VERSION ULTRA PRÉCISE
+    document.addEventListener('click', (e) => {
+        if (isProcessingClick) return;
+        
+        const target = e.target;
+        const isClickInsideMenu = menuToggleBtn && menuToggleBtn.contains(target);
+        const isClickInsideNav = navCenterEl && navCenterEl.contains(target);
+        const isClickInsideDropdown = dropdownEl && dropdownEl.contains(target);
+        const isClickOnDropdownToggle = dropdownToggleBtn && dropdownToggleBtn.contains(target);
+        
+        // Ne rien faire si on clique sur les boutons de contrôle
+        if (isClickOnDropdownToggle || isClickInsideMenu) {
+            return;
+        }
+        
+        // Fermer le dropdown si clic en dehors (avec délai pour éviter les conflits)
+        if (isDropdownOpen && !isClickInsideDropdown) {
+            setTimeout(() => {
+                if (dropdownEl) {
+                    dropdownEl.classList.remove('active');
+                    isDropdownOpen = false;
+                }
+            }, 10);
+        }
+        
+        // Fermer le menu mobile si clic en dehors
+        if (isMobileMenuOpen && !isClickInsideMenu && !isClickInsideNav) {
+            setTimeout(() => {
+                closeAllMenus();
+            }, 10);
+        }
+    });
+
+    // Fermeture au scroll avec délai
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            if (isDropdownOpen || isMobileMenuOpen) {
+                closeAllMenus();
+            }
+        }, 100);
+    });
+
+    // Fermeture des liens avec gestion spéciale
+    const allNavLinks = document.querySelectorAll('.nav-link, .dropdown-item');
+    allNavLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Pour les liens dropdown, laisser le temps à la navigation de s'effectuer
+            const isDropdownLink = link.classList.contains('dropdown-item');
+            const delay = isDropdownLink ? 200 : 100;
+            
+            setTimeout(() => {
+                closeAllMenus();
+            }, delay);
+        });
+    });
+
+    // Gestion responsive intelligente
+    function handleResize() {
+        const wasMobile = window.innerWidth <= 768;
+        
+        if (!wasMobile && (isDropdownOpen || isMobileMenuOpen)) {
+            // Mode desktop : tout fermer proprement
+            closeAllMenus(true);
+        }
+    }
+
+    // Resize avec débounce amélioré
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(handleResize, 300);
+    });
+
+    // Support clavier (accessibilité)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeAllMenus();
+        }
+    });
+
+    // Empêcher la sélection de texte sur les boutons
+    if (dropdownToggleBtn) {
+        dropdownToggleBtn.style.userSelect = 'none';
+        dropdownToggleBtn.style.webkitUserSelect = 'none';
+        dropdownToggleBtn.style.mozUserSelect = 'none';
+    }
+
+    if (menuToggleBtn) {
+        menuToggleBtn.style.userSelect = 'none';
+        menuToggleBtn.style.webkitUserSelect = 'none';
+        menuToggleBtn.style.mozUserSelect = 'none';
+    }
     
     console.log('Portfolio animations initialized successfully!');
 });
@@ -629,7 +829,7 @@ function throttle(func, limit) {
             inThrottle = true;
             setTimeout(() => inThrottle = false, limit);
         }
-    }
+    };
 }
 
 // Performance optimization for scroll events
@@ -659,80 +859,3 @@ function preloadImages() {
 
 // Initialize preloading
 window.addEventListener('load', preloadImages);
-
-// ===== GESTION MENU MOBILE ET DROPDOWN =====
-// À placer à la fin de votre script copy.js
-
-const menuToggle = document.getElementById('menuToggle');
-const navCenter = document.querySelector('.nav-center');
-const dropdown = document.querySelector('.dropdown');
-const dropdownToggle = document.querySelector('.dropdown-toggle');
-
-// Menu mobile toggle
-if (menuToggle && navCenter) {
-    menuToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        menuToggle.classList.toggle('active');
-        navCenter.classList.toggle('active');
-        
-        // Fermer le dropdown si ouvert
-        if (dropdown) {
-            dropdown.classList.remove('active');
-        }
-    });
-}
-
-// Dropdown toggle
-if (dropdownToggle && dropdown) {
-    dropdownToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        dropdown.classList.toggle('active');
-    });
-}
-
-// Fermer les menus en cliquant ailleurs
-document.addEventListener('click', (e) => {
-    // Fermer menu mobile
-    if (menuToggle && navCenter) {
-        if (!menuToggle.contains(e.target) && !navCenter.contains(e.target)) {
-            menuToggle.classList.remove('active');
-            navCenter.classList.remove('active');
-        }
-    }
-    
-    // Fermer dropdown
-    if (dropdown && dropdownToggle) {
-        if (!dropdown.contains(e.target)) {
-            dropdown.classList.remove('active');
-        }
-    }
-});
-
-// Fermer les menus lors du clic sur un lien normal
-const normalNavLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
-normalNavLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (menuToggle && navCenter) {
-            menuToggle.classList.remove('active');
-            navCenter.classList.remove('active');
-        }
-    });
-});
-
-// Fermer les menus lors du clic sur un item dropdown
-const dropdownItems = document.querySelectorAll('.dropdown-item');
-dropdownItems.forEach(item => {
-    item.addEventListener('click', () => {
-        // Fermer le dropdown
-        if (dropdown) {
-            dropdown.classList.remove('active');
-        }
-        
-        // Fermer le menu mobile
-        if (menuToggle && navCenter) {
-            menuToggle.classList.remove('active');
-            navCenter.classList.remove('active');
-        }
-    });
-});
