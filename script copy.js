@@ -1,4 +1,53 @@
 // GSAP Animations Portfolio
+
+// Active navigation state management
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('.section');
+
+        // Function to update active nav link
+        function updateActiveNav() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Listen for scroll events
+        window.addEventListener('scroll', updateActiveNav);
+
+        // Mobile menu toggle functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinksContainer = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksContainer.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !navLinksContainer.contains(e.target)) {
+                navLinksContainer.classList.remove('active');
+            }
+        });
+        
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize GSAP plugins
     gsap.registerPlugin(ScrollTrigger);
@@ -34,36 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
         themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
     }
     
-    // Mobile Menu Toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-    
-    // Navigation Active Link
-    const navItems = document.querySelectorAll('.nav-links a');
-    const sections = document.querySelectorAll('section');
-    
-    function updateActiveNav() {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href') === `#${current}`) {
-                item.classList.add('active');
-            }
-        });
-    }
     
     window.addEventListener('scroll', updateActiveNav);
     
@@ -603,178 +622,6 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 
-    // ===== GESTION MENU MOBILE ET DROPDOWN - VERSION ULTRA STABLE =====
-    
-    // Variables globales avec gestion d'état robuste
-    let isDropdownOpen = false;
-    let isMobileMenuOpen = false;
-    let isProcessingClick = false; // Évite les doubles clics rapides
-
-    // Sélecteurs uniques
-    const menuToggleBtn = document.getElementById('menuToggle');
-    const navCenterEl = document.querySelector('.nav-center');
-    const dropdownEl = document.querySelector('.dropdown');
-    const dropdownToggleBtn = document.querySelector('.dropdown-toggle');
-
-    // Fonction pour fermer tous les menus avec animation complète
-    function closeAllMenus(immediate = false) {
-        if (isProcessingClick && !immediate) return;
-        
-        isProcessingClick = true;
-        
-        // Fermer menu mobile
-        if (menuToggleBtn) {
-            menuToggleBtn.classList.remove('active');
-            isMobileMenuOpen = false;
-        }
-        
-        // Fermer navigation
-        if (navCenterEl) {
-            navCenterEl.classList.remove('active');
-        }
-        
-        // Fermer dropdown avec délai pour l'animation
-        if (dropdownEl) {
-            dropdownEl.classList.remove('active');
-            isDropdownOpen = false;
-        }
-        
-        // Réinitialiser le verrou après l'animation
-        setTimeout(() => {
-            isProcessingClick = false;
-        }, immediate ? 0 : 350);
-    }
-
-    // Fonction pour ouvrir/fermer le dropdown de manière sécurisée
-    function toggleDropdown(event) {
-        if (isProcessingClick) return;
-        
-        event.preventDefault();
-        event.stopPropagation();
-        event.stopImmediatePropagation(); // Ultra important !
-        
-        isProcessingClick = true;
-        
-        setTimeout(() => {
-            if (isDropdownOpen) {
-                // Fermer le dropdown
-                dropdownEl.classList.remove('active');
-                isDropdownOpen = false;
-            } else {
-                // Ouvrir le dropdown
-                dropdownEl.classList.add('active');
-                isDropdownOpen = true;
-            }
-            
-            setTimeout(() => {
-                isProcessingClick = false;
-            }, 150);
-        }, 10);
-    }
-
-    // Gestion du menu mobile - VERSION ULTRA STABLE
-    if (menuToggleBtn && navCenterEl) {
-        menuToggleBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            
-            if (isMobileMenuOpen) {
-                closeAllMenus();
-            } else {
-                // Fermer d'abord le dropdown s'il est ouvert
-                if (isDropdownOpen) {
-                    closeAllMenus(true); // Fermeture immédiate
-                }
-                
-                // Ouvrir le menu mobile avec délai
-                setTimeout(() => {
-                    menuToggleBtn.classList.add('active');
-                    navCenterEl.classList.add('active');
-                    isMobileMenuOpen = true;
-                }, 50);
-            }
-        });
-    }
-
-    // Gestion du dropdown - VERSION ULTRA STABLE
-    if (dropdownToggleBtn && dropdownEl) {
-        dropdownToggleBtn.addEventListener('click', toggleDropdown);
-        
-        // Support tactile pour mobile
-        dropdownToggleBtn.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            toggleDropdown(e);
-        });
-    }
-
-    // Gestionnaire de clic global - VERSION ULTRA PRÉCISE
-    document.addEventListener('click', (e) => {
-        if (isProcessingClick) return;
-        
-        const target = e.target;
-        const isClickInsideMenu = menuToggleBtn && menuToggleBtn.contains(target);
-        const isClickInsideNav = navCenterEl && navCenterEl.contains(target);
-        const isClickInsideDropdown = dropdownEl && dropdownEl.contains(target);
-        const isClickOnDropdownToggle = dropdownToggleBtn && dropdownToggleBtn.contains(target);
-        
-        // Ne rien faire si on clique sur les boutons de contrôle
-        if (isClickOnDropdownToggle || isClickInsideMenu) {
-            return;
-        }
-        
-        // Fermer le dropdown si clic en dehors (avec délai pour éviter les conflits)
-        if (isDropdownOpen && !isClickInsideDropdown) {
-            setTimeout(() => {
-                if (dropdownEl) {
-                    dropdownEl.classList.remove('active');
-                    isDropdownOpen = false;
-                }
-            }, 10);
-        }
-        
-        // Fermer le menu mobile si clic en dehors
-        if (isMobileMenuOpen && !isClickInsideMenu && !isClickInsideNav) {
-            setTimeout(() => {
-                closeAllMenus();
-            }, 10);
-        }
-    });
-
-    // Fermeture au scroll avec délai
-    let scrollTimeout;
-    window.addEventListener('scroll', () => {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-            if (isDropdownOpen || isMobileMenuOpen) {
-                closeAllMenus();
-            }
-        }, 100);
-    });
-
-    // Fermeture des liens avec gestion spéciale
-    const allNavLinks = document.querySelectorAll('.nav-link, .dropdown-item');
-    allNavLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            // Pour les liens dropdown, laisser le temps à la navigation de s'effectuer
-            const isDropdownLink = link.classList.contains('dropdown-item');
-            const delay = isDropdownLink ? 200 : 100;
-            
-            setTimeout(() => {
-                closeAllMenus();
-            }, delay);
-        });
-    });
-
-    // Gestion responsive intelligente
-    function handleResize() {
-        const wasMobile = window.innerWidth <= 768;
-        
-        if (!wasMobile && (isDropdownOpen || isMobileMenuOpen)) {
-            // Mode desktop : tout fermer proprement
-            closeAllMenus(true);
-        }
-    }
 
     // Resize avec débounce amélioré
     let resizeTimeout;
