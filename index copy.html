@@ -17,12 +17,12 @@
     <!-- Navigation -->
      <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo">LOGO</a>
+            <a href="#home" class="logo">PORTFOLIO</a>
             <div class="nav-center">
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Services</a></li>
+                    <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -170,40 +170,61 @@
                 </div>
                 </div>
             <section id="parcours" class="py-16">
+                <div class="section-header">
                 <div class="about-intro">
-                        <h3>01. Mon Parcours Académique</h3>
-                    </div>
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- Bloc Formation EPITA -->
-                <div class="timeline-container">
-                    <h3 class="text-2xl font-bold text-blue-800 mb-3">EPITA - [Intitulé de la formation, ex: Cycle Préparatoire]</h3>
-                    <p class="text-lg text-white-500 mb-4"><strong>[Année de début] - Aujourd'hui</strong></p>
-                    <p class="skill-explanation">
-                        Ma formation à l'EPITA m'a permis d'acquérir de solides bases en informatique, axées sur la **résolution de problèmes complexes** et la **pensée algorithmique**.
-                    </p>
-                    <ul class="skill-explanation">
-                        <li>Matières principales : Algorithmique, Programmation C/Python/Java, Systèmes d'exploitation, Bases de données.</li>
-                        <li>Résultats marquants : [Ex: Réussite du challenge 'Piscine C', Projet Algo réussi, etc.].</li>
-                        <li>Compétences théoriques : Modélisation des données, Complexité des algorithmes, Architecture des ordinateurs.</li>
-                    </ul>
-                </div>
-                <!-- Bloc Expérience(s) Professionnelle(s) / Stage -->
-                <div class="timeline-container">
-                    <h3 class="text-2xl font-bold text-blue-800 mb-3">[Intitulé du Stage/Job] - [Nom de l'Entreprise]</h3>
-                    <p class="text-lg text-white-500 mb-4"><strong>[Année de début] - Aujourd'hui</strong></p>
-                    <p class="skill-explanation">
-                        Cette expérience a été l'occasion de confronter mes connaissances académiques aux **réalités du monde professionnel**, notamment en [domaine spécifique].
-                    </p>
-                    <ul class="skill-explanation">
-                        <li>**Responsabilités** : [Décrire une tâche clé ou une responsabilité].</li>
-                        <li>**Technologies** : [Mentionner les outils/langages utilisés en entreprise].</li>
-                        <li>**Apprentissages** : Amélioration de la communication professionnelle et de la gestion du temps sous pression.</li>
-                    </ul>
-                    <a href="#" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-semibold text-sm">
-                        Voir le Retour d'Expérience complet →
-                    </a>
+                        <h3>01. Mon Parcours Académique et Expériences</h3>
                 </div>
             </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="job-detail-card" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+                    <div class="job-header">
+                        <h3 class="text-2xl font-bold text-blue-800 mb-3">Cycle Préparatoire Intégré (Info Sup/Spé) - EPITA</h3>
+                    </div>
+                    <p class="text-lg text-white-500 mb-4"><strong>[2024 - Présent]</strong></p> 
+                    <p class="job-explanation">
+                        <strong>Fondamentaux de l'Ingénierie Informatique</strong> : Formation d'excellence axée sur l'acquisition de compétences en <strong>programmation système</strong> et en <strong>algorithmique avancée</strong>. L'accent est mis sur la compréhension profonde des architectures et de l'efficacité mémoire.
+                    </p>
+                    <p class="skill-explanation">
+                        La pédagogie est largement basée sur l'approche par projet pour apprendre le travail en équipe et une autonomie total sur les différents projets.
+                    </p>
+                    <ul class="skill-explanation">
+                        <li>Matières fondamentales : Algorithmique (avancée), Programmation en C/C# (langage pivot), Python, Java, Systèmes d'exploitation (UNIX).</li>
+                        <li>Acquis essentiels : Maîtrise des concepts bas niveau ainsi que l'application des structures de données complexes.</li>
+                        <li>Compétences théoriques : Modélisation des données, <strong>Complexité et optimisation des algorithmes</strong>, Architecture des ordinateurs.</li>
+                    </ul>
+                    <div class="job-list">
+                        <span class="job-pill">C / C++</span>
+                        <span class="job-pill">Python</span>
+                        <span class="job-pill">Algorithmique</span>
+                        <span class="job-pill">UNIX</span>
+                    </div>
+                </div>
+
+                <div class="job-detail-card" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+                    <div class="job-header">
+                        <h3 class="text-2xl font-bold text-blue-800 mb-3">Développeur Web Full Stack (CDD 3 mois) - Synergie 73 Informatique</h3>
+                    </div>
+                    <p class="text-lg text-white-500 mb-4"><strong>[juin 2025 - août 2025]</strong></p>
+                    <p class="job-explanation">
+                        <strong>Développement d'application interne</strong> : Mission de conception et d'implémentation d'un **intranet de gestion de stock et de vente** avec intégration d'un module de planification (calendrier de vente).
+                    </p>
+                    <p class="skill-explanation">
+                        Cette expérience m'a permis d'assurer la gestion du cycle de développement complet (Full Stack), de la modélisation des données à la production d'une interface utilisateur fonctionnelle pour les besoins internes de l'entreprise.
+                    </p>
+                    <ul class="skill-explanation">
+                        <li><strong>Responsabilités Clés</strong> : Conception du schéma de base de données, développement du moteur back-end en **PHP** et implémentation de la logique front-end.</li>
+                        <li><strong>Environnement Technique</strong> : Utilisation de **PHP, HTML, CSS, JavaScript** et interaction avec une base de données **MySQL** administrée via PHPMyAdmin.</li>
+                        <li><strong>Acquis Professionnels</strong> : Autonomie complète sur un projet d'entreprise, respect des exigences fonctionnelles et application des principes de développement web en contexte réel.</li>
+                    </ul>
+                    <div class="job-list">
+                        <span class="job-pill">PHP</span>
+                        <span class="job-pill">HTML / CSS</span>
+                        <span class="job-pill">JavaScript</span>
+                        <span class="job-pill">MySQL (phpMyAdmin)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
         </section>  
     </div>
     </section>
@@ -213,8 +234,8 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Compétences Techniques</span>
-                <h2 class="section-title" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">L'expertise au service des systèmes.</h2>
-                <p class="section-subtitle" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">Chacune de mes compétences est étayée par une expérience pratique, démontrant ma capacité à choisir et à maîtriser l'outil adapté au défi. Vous trouverez ci-dessous une explication de ma maîtrise pour chaque catégorie.</p>
+                <h2 class="section-title" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">Mes compétences techniques</h2>
+                <p class="section-subtitle" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">Vous pouvez trouver si dessous différents type de langages ou de compétence qui sont acquisent ou en cours d'axquisition</p>
             </div>
             
             <div class="skills-detail-grid">
@@ -225,54 +246,64 @@
                         <span class="skill-icon">🐍</span>
                         <h3>Langages &amp; Algorithmique</h3>
                     </div>
-                    <p class="skill-explanation"><strong>Maîtrise :</strong> Intermédiaire-Avancé. J'ai une base solide en **C/C++** pour la programmation système et l'efficacité mémoire (cours EPITA B3/B4), complétée par une expertise en **Python** pour le scripting, l'analyse de données (Pandas) et le développement backend (Django).</p>
+                    <p class="skill-explanation"><strong>Maîtrise :</strong> Intermédiaire-Avancé. J'ai une base solide en <strong>C/C++</strong> pour la programmation système et l'efficacité mémoire (cours EPITA B3/B4), complétée par une maitrise du langage <strong>Python</strong> pour les différents type de structures.je maitrise aussi de facon correct l'OS linux que nous tuilisons quotidienement</p>
                     <div class="skill-list">
                         <span class="skill-pill">Python</span>
-                        <span class="skill-pill">C / C++</span>
-                        <span class="skill-pill">JavaScript / TypeScript</span>
+                        <span class="skill-pill">C / C#</span>
+                        <span class="skill-pill">Linux</span>
                     </div>
                 </div>
-
-                <!-- Compétence 2: Architecture Web & Back-end -->
-                <div class="skill-detail-card" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+<div class="skill-detail-card" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
                     <div class="skill-header">
-                        <span class="skill-icon">🌐</span>
-                        <h3>Architecture Web &amp; APIs</h3>
+                        <span class="skill-icon">📸</span>
+                        <h3>Photographie & Édition Numérique</h3>
                     </div>
-                    <p class="skill-explanation"><strong>Maîtrise :</strong> Avancé. J'ai conçu plusieurs API RESTful robustes avec **Django et Node.js/Express**. Je suis familier avec les concepts d'architecture sans état et j'ai une expérience pratique de la mise en place de services via **Docker** (voir REX Projets).</p>
+                    <p class="skill-explanation">
+                        <strong>Maîtrise :</strong> Avancé. Passionné de photographie, j'ai développé une expertise dans la chaîne complète de production d'images, de la capture à la post-production. J'ai conçu et gère mon propre site portfolio pour exposer mes travaux.
+                    </p>
+                    <p class="skill-explanation">
+                        Cette compétence transversale renforce ma rigueur et mon sens de l'esthétisme, des atouts pour le design d'interface (UI/UX).
+                    </p>
                     <div class="skill-list">
-                        <span class="skill-pill">Django / Flask</span>
-                        <span class="skill-pill">Node.js / Express</span>
-                        <span class="skill-pill">Architecture REST</span>
-                        <span class="skill-pill">Docker</span>
+                        <span class="skill-pill">Adobe Photoshop</span>
+                        <span class="skill-pill">Adobe Lightroom</span>
+                        <span class="skill-pill">Post-Production</span>
+                        <span class="skill-pill">Portfolio Web</span>
                     </div>
                 </div>
 
-                <!-- Compétence 3: Front-end & UI/UX -->
                 <div class="skill-detail-card" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
                     <div class="skill-header">
                         <span class="skill-icon">🎨</span>
-                        <h3>Développement Front-end (React)</h3>
+                        <h3>Développement Front-end & Design</h3>
                     </div>
-                    <p class="skill-explanation"><strong>Maîtrise :</strong> Intermédiaire. Mon expertise se concentre sur **React.js** pour la création d'interfaces utilisateur modernes et réactives. J'utilise **TypeScript** pour garantir la sécurité des types et **Tailwind CSS** pour une conception rapide et modulaire. Je suis attentif à l'accessibilité.</p>
+                    <p class="skill-explanation">
+                        <strong>Maîtrise :</strong> Intermédiaire. Capacité à intégrer des interfaces utilisateur modernes et réactives en utilisant <strong>HTML/CSS/JS</strong>.
+                    </p>
+                    <p class="skill-explanation">
+                        Bien que je sois encore en phase d'apprentissage, j'ai une bonne compréhension des principes de design UI/UX et de l'intégration responsive. J'ai également une expérience pratique avec des frameworks CSS comme <strong>Tailwind CSS</strong>.
+                    </p>
                     <div class="skill-list">
-                        <span class="skill-pill">React.js</span>
-                        <span class="skill-pill">Next.js</span>
-                        <span class="skill-pill">Tailwind CSS</span>
+                        <span class="skill-pill">HTML5 / CSS3</span>
+                        <span class="skill-pill">JavaScript</span>
+                        <span class="skill-pill">Intégration Responsive</span>
+                        <span class="skill-pill">UI/UX (Notions)</span>
                     </div>
                 </div>
-                
-                <!-- Compétence 4: Bases de Données & Data -->
+
                 <div class="skill-detail-card" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
                     <div class="skill-header">
-                        <span class="skill-icon">💾</span>
-                        <h3>Bases de Données &amp; Systèmes</h3>
+                        <span class="skill-icon">⚙️</span>
+                        <h3>Outils de Développement & Collaboration</h3>
                     </div>
-                    <p class="skill-explanation"><strong>Maîtrise :</strong> Intermédiaire. Forte connaissance de **SQL** (PostgreSQL/MySQL) pour la modélisation relationnelle. J'ai également exploré les bases de données NoSQL (MongoDB) et Time-Series (InfluxDB) pour des cas d'usage spécifiques nécessitant de hautes performances d'écriture.</p>
+                    <p class="skill-explanation">
+                        <strong>Maîtrise :</strong> Avancé. Utilisation quotidienne de <strong>Git</strong> pour la gestion de versions collaborative et de plateformes comme <strong>GitHub</strong> pour le travail en équipe. J'ai également une bonne connaissance des environnements <strong>Linux/UNIX</strong> et des outils de la ligne de commande (CLI).
+                    </p>
                     <div class="skill-list">
-                        <span class="skill-pill">SQL (PostgreSQL)</span>
-                        <span class="skill-pill">MongoDB</span>
-                        <span class="skill-pill">Modélisation de Données</span>
+                        <span class="skill-pill">Git / GitHub</span>
+                        <span class="skill-pill">Linux / CLI</span>
+                        <span class="skill-pill">VS Code / IDEs</span>
+                        <span class="skill-pill">Méthodologies Agile</span>
                     </div>
                 </div>
 
@@ -280,7 +311,7 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section 
     <section id="projects" class="projects-section">
         <div class="container">
             <div class="section-header">
@@ -476,8 +507,110 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
+    <!-- Projects & REX Section -->
+    <section id="projects" class="projects-section section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Projets & REX</span>
+            <h2 class="section-title">Analyse et Réflexion sur mes Réalisations</h2>
+            <p class="section-subtitle">Chaque projet est une opportunité d'appliquer les acquis, de faire face aux difficultés et de grandir. Découvrez mon processus analytique et mon Retour d'Expérience.</p>
+        </div>
 
+        <div class="project-card detailed-rex">
+            <div class="main-project-image">
+                <img src="pict/Capture d’écran 2025-10-05 173944.jpg" alt="Vue principale du jeu Click & Clash (Phase Clicker)" class="main-image-item">
+            </div>
+            
+            <div class="project-gallery">
+                <img src="pict/projet1-clicker.png" alt="Vue de l'interface Clicker" class="small-image-item">
+                <img src="pict/Capture d’écran 2025-10-05 180644.jpg" alt="Capture de la phase de combat (Smash Bros style)" class="small-image-item">
+            </div>
+            
+            <div class="project-info">
+                <h3>Projet Majeur : Click & Clash (Jeu Vidéo Hybride)</h3>
+                <p class="project-date">Printemps 2025 - Projet d'équipe</p>
+
+                <div class="rex-analysis">
+                    <h4>1. Choix Technologiques & Objectif (Le Pourquoi)</h4>
+                    <p>
+                        <Strong>Contexte et Justification :</Strong> L'objectif était de créer un jeu hybride combinant la stratégie passive d'un <Strong>Clicker</Strong> et le dynamisme d'un jeu de combat type <Strong>Smash Bros</Strong>. J'ai choisi <Strong>Unity</Strong> et <Strong>C#</Strong> pour la performance du moteur.
+                    </p>
+                    
+                    <h4>2. Défis Rencontrés et Solutions (Capacité d'Analyse)</h4>
+                    <p>
+                        Le défi principal était d'assurer la <Strong>cohérence entre les deux phases de gameplay</Strong>. Mon rôle a été clé dans le développement de la <Strong>User Interface (UI)</Strong> pour garantir une transition fluide entre le Clicker et le Combat. J'ai également contribué au <Strong>système de combat</Strong> et créé l'<Strong>installateur</Strong> du jeu (Inno Setup) pour faciliter la distribution.
+                    </p>
+
+                    <h4>3. Bilan et Auto-Évaluation (Prise de Recul)</h4>
+                    <p>
+                        <Strong>Réussite(s) :</Strong> L'interface utilisateur a été saluée pour sa clarté, permettant aux joueurs de suivre facilement leur progression dans la phase Clicker et leurs statistiques de Combat. Ce projet a démontré ma <Strong>rigueur algorithmique et esthétique</Strong>.
+                    </p>
+                    <p>
+                        <Strong>Axes d'Amélioration :</Strong> L'amélioration de la gestion des conflits sur Git dans une équipe de 5 est un point à renforcer pour optimiser les performances futures.
+                    </p>
+
+                    <h4>4. Compétences Techniques & Soft Skills Visées</h4>
+                    <ul class="competence-list">
+                        <li><Strong>Hard Skill :</Strong> Programmation orientée objet (C#), Système de jeu (Unity), et <Strong>Conception UI</Strong></li>
+                        <li><Strong>Soft Skill :</Strong> Travail d'équipe, communication technique et gestion de projet</li>
+                    </ul>
+                </div>
+
+                <div class="project-links">
+                    <a href="https://click-n-clash.netlify.app" target="_blank" class="cta-button primary">Voir la Démo</a>
+                    <a href="#" target="_blank" class="cta-button secondary">Code Source (Lien à compléter)</a>
+                </div>
+            </div>
+        </div>
+        <div class="project-card detailed-rex">
+            <div class="main-project-image">
+                <img src="pict/Capture d’écran 2025-10-05 180443.jpg" alt="Capture d'écran de l'accueil de Team Car Spotting" class="main-image-item">
+            </div>
+            
+            <div class="project-gallery">
+                <img src="pict/Capture d’écran 2025-10-05 173010.jpg" alt="Détail de la galerie Rallye du Coeur" class="small-image-item">
+                <img src="pict/Capture d’écran 2025-10-05 173117.jpg" alt="Détail d'un véhicule spécifique (Chiron/Porsche)" class="small-image-item">
+            </div>
+            
+            <div class="project-info">
+                <h3>Projet Personnel : Plateforme Team Car Spotting</h3>
+                <p class="project-date">2023 - Projet Personnel Web</p>
+
+                <div class="rex-analysis">
+                    <h4>1. Choix Technologiques & Objectif (Le Pourquoi)</h4>
+                    <p>
+                        <Strong>Contexte et Justification :</Strong> Ce projet est mon portfolio personnel dans l'ingénierie automobile et la photographie. Il sert de preuve de concept pour la gestion d'un grand volume de contenu visuel (galeries, événements). L'objectif était une <Strong>intégration HTML/CSS</Strong> propre et un back-end simple (PHP/MySQL) pour la gestion des données de galerie.
+                    </p>
+                    
+                    <h4>2. Défis Rencontrés et Solutions (Capacité d'Analyse)</h4>
+                    <p>
+                        Le défi était d'assurer un <Strong>temps de chargement rapide</Strong> malgré les nombreuses images haute résolution. La solution a été d'implémenter le <Strong>Lazy-Loading</Strong> pour les images de la galerie et d'optimiser l'affichage responsive pour tous les appareils.
+                    </p>
+
+                    <h4>3. Bilan et Auto-Évaluation (Prise de Recul)</h4>
+                    <p>
+                        <Strong>Réussite(s) :</Strong> La carte dynamique des événements est un succès, prouvant ma capacité à structurer l'information géographique et temporelle. Le site est un excellent showcase de ma <Strong>rigueur esthétique</Strong>.
+                    </p>
+                    <p>
+                        <Strong>Axes d'Amélioration :</Strong> je devrai retravailler les différents type d'animations qui des fois peuvent surcharger le visuel
+                    </p>
+
+                    <h4>4. Compétences Techniques & Soft Skills Visées</h4>
+                    <ul class="competence-list">
+                        <li><Strong>Hard Skill :</Strong> Intégration Front-end (Responsive) et gestion de base de données (SQL/PHPMyAdmin)</li>
+                        <li><Strong>Soft Skill :</Strong> Rigueur esthétique, gestion de l'autonomie et création de contenu</li>
+                    </ul>
+                </div>
+
+                <div class="project-links">
+                    <a href="https://teamcarspotting.fr" target="_blank" class="cta-button primary">Visiter le Site</a>
+                    <a href="#" target="_blank" class="cta-button secondary">Code Source (Lien à compléter)</a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
