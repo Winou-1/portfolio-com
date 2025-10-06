@@ -706,3 +706,26 @@ function preloadImages() {
 
 // Initialize preloading
 window.addEventListener('load', preloadImages);
+
+// Projects Section Animations (Recoded)
+gsap.utils.toArray('.project-card').forEach((card, i) => {
+    gsap.fromTo(card, 
+        { 
+            opacity: 0, 
+            y: 50, 
+            scale: i === 0 ? 0.95 : 1, // La carte principale (index 0) aura un léger effet de zoom initial
+        }, 
+        {
+            opacity: 1, 
+            y: 0, 
+            scale: 1,
+            duration: 0.8, 
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 90%', // Déclenche l'animation lorsque 90% de la carte est visible
+                toggleActions: 'play none none reverse',
+            }
+        }
+    );
+});

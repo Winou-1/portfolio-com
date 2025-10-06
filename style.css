@@ -2329,3 +2329,227 @@ body {
     display: flex;
     gap: var(--space-md);
 }
+
+
+
+
+
+
+/* ================================================= */
+/* Projects Section (Version 2 - Cartes Égales)      */
+/* ================================================= */
+
+.projects-section {
+    padding: var(--space-3xl) 0;
+    background-color: var(--bg-secondary);
+}
+
+.project-grid-new {
+    display: grid;
+    /* Une colonne par défaut sur mobile/tablette */
+    grid-template-columns: 1fr; 
+    gap: var(--space-2xl);
+    margin-top: var(--space-3xl);
+}
+
+@media (min-width: 1024px) {
+    .project-grid-new {
+        /* Deux colonnes égales sur grand écran */
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+.project-grid-new {
+    display: grid;
+    /* On force une seule colonne pour l'affichage en liste */
+    grid-template-columns: 1fr; 
+    /* Augmentation de l'espace entre les projets pour les aérer en liste */
+    gap: var(--space-4xl); 
+    margin-top: var(--space-3xl);
+}
+.project-card-new {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Assure que toutes les cartes ont la même hauteur */
+    transition: all 0.3s ease;
+}
+
+.project-card-new:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-color);
+}
+
+.project-image-container {
+    height: 250px; /* Hauteur fixe pour que les images soient de même taille */
+    overflow: hidden;
+}
+
+.project-image-new {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assure que l'image couvre bien l'espace sans se déformer */
+    transition: transform 0.4s ease;
+}
+
+
+.project-content {
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permet au contenu de remplir l'espace restant */
+}
+
+.project-type {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-xs);
+}
+
+.project-title {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.project-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+    flex-grow: 1; /* Pousse les tags et liens vers le bas */
+}
+
+/* Tags Styling (Réutilisé de la version précédente) */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-top: auto;
+    margin-bottom: var(--space-xl);
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    background-color: var(--bg-tertiary);
+    color: var(--primary-dark);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+/* Links/CTA */
+.project-links {
+    display: flex;
+    gap: var(--space-lg);
+    padding-top: var(--space-md);
+    border-top: 1px dashed var(--border-color);
+}
+
+.link-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+    text-decoration: none;
+}
+
+.link-icon:hover {
+    color: var(--primary-color);
+}
+
+.project-links svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* CTA More Projects (Réutilisé) */
+.cta-more-projects {
+    margin-top: var(--space-3xl);
+    text-align: center;
+}
+
+
+/* ================================================= */
+/* Styles du bloc REX (Réflexion & Analyse) intégré  */
+/* ================================================= */
+
+.rex-block {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-xl);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    /* Utilise un fond légèrement différent pour le contraste */
+    background-color: var(--bg-secondary); 
+    border: 1px solid var(--border-color);
+}
+
+/* Adaptation du fond en mode sombre */
+[data-theme="dark"] .rex-block {
+    background-color: var(--gray-800);
+}
+
+.rex-block h4 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--space-xs);
+}
+
+.rex-item {
+    margin-bottom: var(--space-md);
+}
+
+.rex-item h5 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+    position: relative;
+    padding-left: 10px;
+}
+
+/* Petit point décoratif à côté des titres Objectifs/Défis/Résultats */
+.rex-item h5::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+}
+
+.rex-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+
+.rex-block-2 {
+    margin-bottom: var(--space-xl);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    background-color: var(--bg-secondary); 
+    border: 1px solid var(--border-color);
+}
+
