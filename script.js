@@ -91,8 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Typewriter effect
     const typewriterTexts = [
-        'Développeur Full Stack',
-        'UI/UX Designer',
+        'Etudiant en informatique',
+        'passioné par la montagne',
         'Photographe Passionné',
         'Étudiant à EPITA Lyon'
     ];
