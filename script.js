@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'Etudiant en informatique',
         'passioné par la montagne',
         'Photographe Passionné',
-        'Étudiant à EPITA Lyon'
+        'Étudiant à l\'EPITA Lyon'
     ];
     
     let currentTextIndex = 0;
