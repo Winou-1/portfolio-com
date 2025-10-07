@@ -1,5 +1,5 @@
 /* Reset and Base Styles */
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -93,6 +93,8 @@
 
 /* Base Styles */
 html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
     scroll-behavior: smooth;
     font-size: 16px;
     overflow-x: hidden;
@@ -110,6 +112,8 @@ body {
     width: 100%;
     position: relative;
     transition: background-color var(--transition-normal), color var(--transition-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 
