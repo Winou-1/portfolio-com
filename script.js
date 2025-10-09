@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Typewriter effect
     const typewriterTexts = [
         'Etudiant en informatique',
-        'passioné par la montagne',
+        'passionné par la montagne',
         'Photographe Passionné',
         'Étudiant à l\'EPITA Lyon'
     ];
